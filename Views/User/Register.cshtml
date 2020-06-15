@@ -1,0 +1,32 @@
+@model User
+<h3>Register</h3>
+<form asp-action="Create" asp-controller="User">
+    <div class="input-field col s12">
+        <input asp-for="FirstName" type="text">
+        <label asp-for="FirstName"></label>
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div class="input-field col s12">
+        <input asp-for="LastName" type="text">
+        <label asp-for="LastName"></label>
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div class="input-field col s12">
+        <input asp-for="Email" type="text">
+        <label asp-for="Email"></label>
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="input-field col s12">
+        <input asp-for="Password" type="password">
+        <label asp-for="Password"></label>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="input-field col s12">
+        <input asp-for="ConfirmPassword" type="password">
+        <label asp-for="ConfirmPassword"></label>
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <div class="input-field col s12">
+        <button class="waves-effect waves-light btn" type="submit">Login</button>
+    </div>
+</form>

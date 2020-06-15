@@ -1,0 +1,61 @@
+@{
+    bool isAttending(Wedding wedding, string email)
+    {
+        foreach(var attendee in wedding.Attendees)
+        {
+            if(attendee.Attendee.Email == email)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+<div class="row">
+    <div class="col s8">
+        <h3>Welcome to the Wedding Planner</h3>
+    </div>
+    <div class="col s4 right-align">
+        <a href="/logout">Log Out</a>
+    </div>
+</div>
+<div class="row">
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Wedding</th>
+                <th>Date</th>
+                <th>Guests</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var wedding in ViewBag.Weddings)
+            {
+                <tr>
+                    <td><a href="weddings/@wedding.WeddingId">@wedding.WedderOne & @wedding.WedderTwo</a></td>
+                    <td>@wedding.Date.ToString("MMM d yyyy")</td>
+                    <td>@wedding.Attendees.Count</td>
+                    @if(wedding.Creator.Email == ViewBag.UserEmail)
+                    {
+                        <td><a href="/weddings/delete/@wedding.WeddingId">Delete</a></td>
+                    }
+                    else if(isAttending(wedding, ViewBag.UserEmail))
+                    {
+                        <td><a href="/weddings/unrsvp/@wedding.WeddingId">Un-RSVP</a></td>
+                    }
+                    else
+                    {
+                        <td><a href="/weddings/rsvp/@wedding.WeddingId">RSVP</a></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col s12">
+        <a class="waves-effect waves-light btn" href="weddings/new">New Wedding</a>
+    </div>
+</div>

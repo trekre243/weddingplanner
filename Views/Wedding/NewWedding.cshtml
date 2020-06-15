@@ -1,0 +1,37 @@
+@model Wedding
+<form asp-action="Create" asp-controller="Wedding">
+    <div class="row">
+        <div class="col 6">
+            <h3>Plan Your Wedding</h3>
+        </div>
+        <div class="col s6 right-align">
+            <a href="/dashboard">Dashboard</a>&nbsp;
+            <a href="/logout">Log Out</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input asp-for="WedderOne" type="text">
+            <label asp-for="WedderOne"></label>
+            <span asp-validation-for="WedderOne"></span>
+        </div>
+        <div class="input-field col s12">
+            <input asp-for="WedderTwo" type="text">
+            <label asp-for="WedderTwo"></label>
+            <span asp-validation-for="WedderTwo"></span>
+        </div>
+        <div class="input-field col s12">
+            <input asp-for="Date" type="date">
+            <label asp-for="Date"></label>
+            <span asp-validation-for="Date"></span>
+        </div>
+        <div class="input-field col s12">
+            <input asp-for="Address" type="text">
+            <label asp-for="Address"></label>
+            <span asp-validation-for="Address"></span>
+        </div>
+        <div class="input-field col s12">
+            <button class="waves-effect waves-light btn" type="submit">Create</button>
+        </div>
+    </div>
+</form>
